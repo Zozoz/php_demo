@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Customer Feedback</title>
+	<script tytp="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function (){
+		$("table").find("tr").each(function(){
+			var thisObj = $(this).children();
+			var name = thisObj.eq(0).text();
+			$(this).hide();
+			alert(name);
+		});
+	});
+
+</script>
+</head>
+<body>
+	<h1>Please tell me your feedback!</h1>
+	<form action="index.php" method="post">
+	<table border="0">
+		<tr>
+			<td width="150">Your Name:</td><br>
+			<td width="150">
+				<input type="text" name="name" size="200" />
+			</td>
+		</tr>
+			<tr>
+			<td width="150">Your Email Address:</td><br>
+			<td width="150">
+				<input type="text" name="email" size="200" />
+			</td>
+		</tr>
+			<tr>
+			<td width="150">Your Feedback:</td><br>
+			<td width="150">
+				<textarea name="feedback" rows="4" cols="210"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<input type="submit" value="Submit"/>
+			</td>
+		</tr>
+	</table>
+	</form>
+	<div id="divMsg">Hello world!</div>
+	<input id="btnShow" type="button" value="显示"/>
+	<input id="btnHide" type="button" value="隐藏"/>
+	<input id="btnChange" type="button" value="修改内容为： Hello World,too!" /><br />
+	<br/>
+	<button>切换。。。。。。</button>
+	<br/>
+	<script type="text/javascript">
+	var t ='btnShow';
+		$("#"+ t).bind("click", function(event) { $("#divMsg").show(); });
+		$("#btnHide").bind("click", function(event) { $("#divMsg").hide(); });
+		$("#btnChange").bind("click", function(event) { $("#divMsg").html("Hello World,too!"); });
+		$("button").bind("click", function() { $("#divMsg").toggle(); });
+	</script>
+</body>
+</html>
